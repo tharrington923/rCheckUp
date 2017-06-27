@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Thomas Harrington</title>
+      <link rel="stylesheet" href="../static/lib/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../static/lib/css/keen-dashboards.css">
+      <link rel="stylesheet" href="../static/lib/css/dc.min.css">
+      <link rel="stylesheet" href="../static/lib/css/leaflet.css">
+      <link rel="stylesheet" href="../static/css/custom.css">
+
+      <script src="../static/lib/js/jquery.min.js"></script>
+      <script src="../static/lib/js/bootstrap.min.js"></script>
+      <script src="../static/lib/js/underscore-min.js"></script>
+      <script src="../static/lib/js/crossfilter.js"></script>
+      <script src="../static/lib/js/d3.min.js"></script>
+      <script src="../static/lib/js/dc.min.js"></script>
+      <script src="../static/lib/js/queue.js"></script>
+      <script src="../static/lib/js/leaflet.js"></script>
+      <script src="../static/lib/js/leaflet-heat.js"></script>
+      <script src="../static/lib/js/keen.min.js"></script>
+      <!-- <script src='../static/js/graphs.js' type='text/javascript'></script> -->
+   </head>
+   <body class="application">
+      <div class="container">
+         <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#background">The Project</a></li>
+            <li><a data-toggle="tab" href="#thedata">The Data</a></li>
+            <li><a data-toggle="tab" href="#themodel">The Model</a></li>
+            <li><a data-toggle="tab" href="#theresults">The Results</a></li>
+            <li><a data-toggle="tab" href="#aboutme">About Me</a></li>
+         </ul>
+         <div class="tab-content">
+            <div id="background" class="tab-pane fade in active">
+              <center>
+                <h3>
+                   r/Check-Up: <i> Forecasting user engagement and community health on Reddit</i>
+                </h3>
+              </center>
+               <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                  <div class="container-fluid" style="background-color:#4885ed">
+                     <div class="navbar-header">
+                        <a class="navbar-brand" href="./">r/Check-Up: The Problem</a>
+                     </div>
+                  </div>
+               </div>
+               <div class= "row">
+                 <div class="col-md-6">
+                   <p>
+                     <!-- <h4> <b> Motivation </b> </h4> -->
+                     User engagement is one of the most important metrics for determining
+                     the overall health of a website. Online forums like Reddit.com are particularly
+                     interesting because the content is generated entirely by its users. There are
+                     multiple types of Reddit users; ranging from people who post/comment as frequently
+                     as everyday to the users who lurk and never comment/post. In January 2013, 46% of
+                     the posts and 25% of the comments were produced by engaged users.
+                   </p>
+                   <p>
+                     <b> Engaged users </b> are the users who either post or comment
+                     on five or more days in a given month.
+                  </p>
+                  <p>
+                    The health of a subreddit (specific forum on Reddit) is dependent on the amount
+                    of content being produced.
+                    By predicting growth or decline before it happens, Reddit can intervene
+                    and implement changes to alter the trajectory of a subreddit. Additionally,
+                    subbreddits can be classified by predicted growth to investigate the characteristics
+                    of each type of growth.
+                  </p>
+                   <p>
+                     <h4> <b> Project </b> </h4>
+                     The goal of this project is to build a predictive model to forecast how
+                     the number of engaged users who are active in a specific
+                     subreddit will change.
+                   </p>
+                   <p>
+                     <h4> <b> Motivating the Definition of Engaged Users </b> </h4>
+                     The graph on the right shows the number of users
+                     as a function of the minimum number of days that they either post or comment in January 2013.
+                     For a given X, the number of users includes all users that produce content on X or more days.
+                     This is represented in the plot by the shaded orange area under the curve.
+                     The horizontal grey line represents 10% of the number of users who post or comment on one day.
+                   </p>
+                 </div>
+                 <div class="col-md-6">
+                   <img src="./static/images/engaged_users.png" ALIGN="right" style="width:588px;"/>
+                 </div>
+               </div>
+            </div>
+            <div id="aboutme" class="tab-pane fade">
+              <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                 <div class="container-fluid" style="background-color:#4885ed">
+                    <div class="navbar-header">
+                       <a class="navbar-brand" href="./">r/Check-Up: About Me</a>
+                    </div>
+                 </div>
+              </div>
+              <br>
+              <div class= "row">
+                <div class="col-md-2">
+                  <img src="./static/images/Tom_Harrington.jpg" ALIGN="left" style="height:250px;"/>
+                </div>
+                <div class="col-md-10">
+                  <h3>About Me</h3>
+                  <p> I am currently a Data Science Fellow at Insight Data Science in New York City.</p>
+                  <p>
+                    In May, I completed my PhD in Physics at Brown University where I studied High Energy Theory.
+                    My research involved studying the mathematical structure of scattering amplitudes;
+                    the objects used to describe the scattering of fundamental particles.
+                  </p>
+                </div>
+              </div>
+              <br>
+              <div class= "row">
+                <div class="col-md-2">
+                  <img src="./static/images/linkedin-logo-3.png" ALIGN="left" style="height:40px;"/>
+                  <a style="line-height:40px;" href="https://www.linkedin.com/in/tomharringtonnyc/" target="_blank"> LinkedIn</a>
+                </div>
+                <div class="col-md-2">
+                  <img src="./static/images/github.png" ALIGN="left" style="height:40px;"/>
+                  <a style="line-height:40px;" href="https://www.github.com/tharrington923/" target="_blank"> GitHub</a>
+                </div>
+              </div>
+            </div>
+            <div id="thedata" class="tab-pane fade">
+              <center>
+                <h3>Reddit Data</h3>
+              </center>
+              <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                 <div class="container-fluid" style="background-color:#4885ed">
+                    <div class="navbar-header">
+                       <a class="navbar-brand" href="./">r/Check-Up: The Data</a>
+                    </div>
+                 </div>
+              </div>
+              <div class= "row">
+                <div class="col-md-6">
+                  <img src="./static/images/data.png" ALIGN="left" style="height:250px;"/>
+                </div>
+                <div class="col-md-6">
+                  <!-- <h3>ARMA</h3> -->
+                  <p>
+                    The Reddit data consists of entries for every single comment
+                    and post. Each post/comment contains a timestamp,
+                    the title, body, author, subreddit, score, and many other fields.
+                    The data is available on Google BigQuery from present back to 2006. However,
+                    I focus on the 2013-2014 data in this project.
+                  </p>
+                  <p>
+                    Using SQL and BigQuery, monthly time series were constructed for each subreddit for
+                    the number of engaged users,
+                    the total number of characters in comments/posts,
+                    the total score (aggregate of up and down votes on comments/posts),
+                    and the number of moderators.
+
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div id="themodel" class="tab-pane fade">
+              <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                 <div class="container-fluid" style="background-color:#4885ed">
+                    <div class="navbar-header">
+                       <a class="navbar-brand" href="./">r/Check-Up: The Model</a>
+                    </div>
+                 </div>
+              </div>
+              <!-- <p>
+                One of the most common methods used to model times series models are autoregressive models.
+                An autoregressive model is used when modeling the time series of a quantity
+                that depends on values of the quantity at earlier times.
+              </p>
+              <p>
+                Moving Average (MA) models are also commonly used in time series modeling.
+              </p> -->
+              <div class= "row">
+                <div class="col-md-6">
+                  <h3>ARMA Model</h3>
+                  <p>
+                    To start, an autoregressive (AR) moving average (MA) model was fit to
+                    the number of engaged users time series for a specific subreddit.
+                    The fit was performed on the February 2013-August 2014 data.
+                    Using the fit, the number of engaged users was forecasted for
+                    September, October, and November.
+                  </p>
+                  <!-- <p>
+                    To start, an autoregressive (AR) moving average (MA) model was fit to
+                    the number of engaged users time series for a specific subreddit.
+                    The fit was performed on the February 2013-August 2014 data.
+                    Using the fit, the number of engaged users was forecasted for
+                    September, October, and November.
+                  </p> -->
+                </div>
+                <div class="col-md-6">
+                  <h3>ARMAX Model</h3>
+                  To improve upon the ARMA model, three exogenous subreddit features were encorporated into an ARMAX model.
+                  The exogenous features consisted of time series for the subreddit for the total number of characters in comments/posts,
+                  the total score (aggregate of up and down votes on comments/posts),
+                  and the number of moderators. The same fit period was used.
+                </div>
+              </div>
+              <div class="col-md-6">
+                <img src="./static/images/arma.png" ALIGN="left" style="height:200px;"/>
+              </div>
+              <div class= "row">
+                <div class="col-md-6">
+                  <img src="./static/images/armax.png" ALIGN="left" style="height:200px;"/>
+                </div>
+              </div>
+              <div class= "row">
+                <div class="col-md-12">
+                  <h3>Quantifying Growth</h3>
+                  <p>
+                    To classify the subreddit as growing, shrinking, or not changing,
+                    the average value of the values for July and August was computed to form the baseline.
+                    Then, the standard deviation for the time series (2/2013-8/2014) was computed.
+                    If the value of the predicted number of engaged users in November
+                    fluctuated more than one standard deviation from the baseline,
+                    the prediction was classified as growing or shrinking depending on the direction. If not,
+                    then the subreddit was classified as not changing.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div id="theresults" class="tab-pane fade">
+              <h3>Results</h3>
+              <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                 <div class="container-fluid" style="background-color:#4885ed">
+                    <div class="navbar-header">
+                       <a class="navbar-brand" href="./">r/Check-Up: The Results</a>
+                    </div>
+                 </div>
+              </div>
+              <div class= "row">
+                <div class="col-md-7">
+                  <img src="./static/images/results.png" ALIGN="left" style="height:300px;"/>
+                </div>
+                <div class="col-md-5">
+                  <img src="./static/images/cmatrix.png" ALIGN="left" style="height:300px;"/>
+                </div>
+              </div>
+              <div class= "row">
+                <div class="col-md-7">
+                  <p>
+                    The plot above shows the time series and ARMAX fit for
+                    the hockey subreddit. The shaded blue region represents the
+                    region being predicted. The ARMAX models performed significantly better than the
+                    ARMA models. The ARMA models obtained around 40% prediction accuracy across the
+                    161 subreddits investigated, while the ARMAX obtained over 60% accuracy.
+                    Inclusion of more exogenous features is likely to yield even more accurate models,
+                    but could not be explored due to the time constraints of this project.
+                  </p>
+                </div>
+                <div class="col-md-5">
+                  <p>
+                    The confusion matrix above shows how each of the 161 subreddit ARMAX models
+                    performed in comparison to the true trend of the subreddits.
+                    While many of the subreddits were classified as not changing,
+                    it is important to minimize the number of subreddits incorrectly
+                    predicted in the top right and bottom left. The large number captured as
+                    not changing is the direct result of how growth was classified.
+                    It would be bad for a subreddit to be predicted to grow and then shrink.
+                  </p>
+                </div>
+              </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
