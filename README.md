@@ -37,7 +37,9 @@ To improve upon the ARMA model, three exogenous subreddit features were encorpor
 
 # Quantifying Growth
 
-To classify the subreddit as growing, shrinking, or not changing, the average value of the values for July and August was computed to form the baseline. Then, the standard deviation for the time series (2/2013-8/2014) was computed. If the value of the predicted number of engaged users in November fluctuated more than one standard deviation from the baseline, the prediction was classified as growing or shrinking depending on the direction. If not, then the subreddit was classified as not changing.
+To classify the subreddit as growing, shrinking, or constant, the average value of the values for July and August was computed to form the baseline. Then, the standard deviation for the time series (2/2013-8/2014) was computed. If the value of the predicted number of engaged users in November fluctuated more than one standard deviation from the baseline, the prediction was classified as growing or shrinking depending on the direction. If not, then the subreddit was classified as not changing.
+
+![](https://github.com/tharrington923/rCheckUp/blob/master/website/rcheckup/static/images/quantify_growth.png)
 
 # Results
 
