@@ -37,16 +37,42 @@ To improve upon the ARMA model, three exogenous subreddit features were encorpor
 
 # Quantifying Growth
 
-To classify the subreddit as growing, shrinking, or constant, the average value of the values for July and August was computed to form the baseline. Then, the standard deviation for the time series (2/2013-8/2014) was computed. If the value of the predicted number of engaged users in November fluctuated more than one standard deviation from the baseline, the prediction was classified as growing or shrinking depending on the direction. If not, then the subreddit was classified as not changing.
+To classify the subreddit as growing, shrinking, or constant,
+the average value of the values for July and August was computed to form the baseline show in grey in the image below.
+Then, the standard deviation for the time series (2/2013-8/2014) was computed.
+The band representing one standard deviation above and below the baseline is shown in green.
+If the value of the predicted number of engaged users in November
+fluctuated more than one standard deviation from the baseline,
+the prediction was classified as growing or shrinking depending on the direction. If not,
+then the subreddit was classified as constant.
 
 ![](https://github.com/tharrington923/rCheckUp/blob/master/website/rcheckup/static/images/quantify_growth.png)
 
 # Results
 
-The plot below shows the time series and ARMAX fit for the hockey subreddit. The shaded blue region represents the region being predicted. The ARMAX models performed significantly better than the ARMA models. The ARMA models obtained around 40% prediction accuracy across the 161 subreddits investigated, while the ARMAX obtained over 60% accuracy. Inclusion of more exogenous features is likely to yield even more accurate models, but could not be explored due to the time constraints of this project.
+First, the results for the "hockey" subreddit is shown below. The plot shows the time series and ARMAX fit for
+the hockey subreddit. The shaded blue region represents the
+region being predicted. The shaded green region represents the
+constant growth band. As seen in the plot, the prediction that the subreddit will grow matches exactly with the real data.
+The procedure of fitting a model and forecasting was repeated for each of the 161 most active subreddits.
+Overall, the ARMAX models performed significantly better than the
+ARMA models. The ARMA models matched the expected trends 40% of the time,
+while the ARMAX were correct over 60% of the time across the three classes of growth.
+Inclusion of more exogenous features is likely to yield even more accurate models,
+but could not be explored due to the time constraints of this project.
 
-![](https://github.com/tharrington923/rCheckUp/blob/master/website/rcheckup/static/images/results.png)
+![](https://github.com/tharrington923/rCheckUp/blob/master/website/rcheckup/static/images/hockey_subreddit.png)
 
-The confusion matrix below shows how each of the 161 subreddit ARMAX models performed in comparison to the true trend of the subreddits. While many of the subreddits were classified as not changing, it is important to minimize the number of subreddits incorrectly predicted in the top right and bottom left. The large number captured as not changing is the direct result of how growth was classified. It would be bad for a subreddit to be predicted to grow and then shrink.
+Now, let's explore how the ARMAX models peformed across the different classes of engaged user growth.
+Below, the plots shown represent the percentage of subreddits that correctly
+modeled the growth or decline out of the all the subreddits belonging to that class.
+One of the important model characteristics in this problem is the ability to
+maximize the number of correct predictions, while minimizing
+the number of subreddit that are predicted to grow when they shrink and vice versa.
+As seen below, this characteristic is satisfied. Overall, the project was
+fairly successful given the short time scale. Many models constructed for subreddits
+correctly predicted the future growth trend of the number of engaged users.
 
-![](https://github.com/tharrington923/rCheckUp/blob/master/website/rcheckup/static/images/cmatrix.png)
+![](https://github.com/tharrington923/rCheckUp/blob/master/website/rcheckup/static/images/shrink.png)
+![](https://github.com/tharrington923/rCheckUp/blob/master/website/rcheckup/static/images/constant.png)
+![](https://github.com/tharrington923/rCheckUp/blob/master/website/rcheckup/static/images/growing.png)

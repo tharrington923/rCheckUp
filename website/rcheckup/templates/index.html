@@ -238,6 +238,7 @@
               </div>
               <div class= "row">
                 <div class="col-md-5">
+                  <br>
                   <p>
                     First, the results for the "hockey" subreddit is shown on the right. The plot shows the time series and ARMAX fit for
                     the hockey subreddit. The shaded blue region represents the
@@ -252,33 +253,40 @@
                   </p>
                 </div>
                 <div class="col-md-7">
-                  <img src="./static/images/results.png" ALIGN="left" style="height:300px;"/>
+                  <img src="./static/images/hockey_subreddit.png" ALIGN="left" style="height:300px;"/>
                 </div>
               </div>
               <div class= "row">
                 <div class="col-md-12">
                   <p>
                     Now, let's explore how the ARMAX models peformed across the different classes of engaged user growth.
-                    Below, the plots are broken into
-                    The confusion matrix above shows how each of the 161 subreddit ARMAX models
+                    Below, the plots shown represent the percentage of subreddits that correctly
+                    modeled the growth or decline out of the all the subreddits belonging to that class.
+                    One of the important model characteristics in this problem is the ability to
+                    maximize the number of correct predictions, while minimizing
+                    the number of subreddit that are predicted to grow when they shrink and vice versa.
+                    As seen below, this characteristic is satisfied. Overall, the project was
+                    fairly successful given the short time scale. Many models constructed for subreddits
+                    correctly predicted the future growth trend of the number of engaged users.
+                    <!-- The confusion matrix above shows how each of the 161 subreddit ARMAX models
                     performed in comparison to the true trend of the subreddits.
                     While many of the subreddits were classified as constant,
                     it is important to minimize the number of subreddits incorrectly
                     predicted in the top right and bottom left. The large number captured as
                     constant is the direct result of how growth was classified.
-                    It would be bad for a subreddit to be predicted to grow and then shrink.
+                    It would be bad for a subreddit to be predicted to grow and then shrink. -->
                   </p>
                 </div>
               </div>
               <div class= "row">
                 <div class="col-md-4">
-                  <img src="./static/images/results.png" ALIGN="left" style="height:300px;"/>
+                  <img src="./static/images/shrink.png" ALIGN="left" style="height:300px;"/>
                 </div>
                 <div class="col-md-4">
-                  <img src="./static/images/cmatrix.png" ALIGN="left" style="height:300px;"/>
+                  <img src="./static/images/constant.png" ALIGN="left" style="height:300px;"/>
                 </div>
                 <div class="col-md-4">
-                  <img src="./static/images/cmatrix.png" ALIGN="left" style="height:300px;"/>
+                  <img src="./static/images/growing.png" ALIGN="left" style="height:300px;"/>
                 </div>
               </div>
             </div>
