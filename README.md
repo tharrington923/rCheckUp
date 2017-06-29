@@ -1,6 +1,6 @@
 # r/CheckUp: Forecasting user engagement and community health on Reddit
 
-User engagement is one of the most important metrics for determining the overall health of a website. Online forums like Reddit.com are particularly interesting because the content is generated entirely by its users. There are multiple types of Reddit users; ranging from people who post/comment as frequently as everyday to the users who lurk and never comment/post. In January 2013, 46% of the posts and 25% of the comments were produced by engaged users.
+User engagement is one of the most important metrics for determining the overall health of a website. Online forums like Reddit.com are particularly interesting because the content is generated entirely by its users. There are multiple types of Reddit users; ranging from people who post/comment as frequently as everyday to the users who lurk and never comment/post. In the data considered in this project (2013-2014), 46% of the posts and 25% of the comments were produced by engaged users.
 
 <b> Engaged users </b> are the users who either post or comment on five or more days in a given month.
 
@@ -9,9 +9,10 @@ The health of a subreddit (specific forum on Reddit) is dependent on the amount 
 # Project
 
 The goal of this project is to build a predictive model to forecast how the number of engaged users who are active in a specific subreddit will change.
-Motivating the Definition of Engaged Users
 
-The graph below shows the number of users as a function of the minimum number of days that they either post or comment in January 2013. For a given X, the number of users includes all users that produce content on X or more days. This is represented in the plot by the shaded orange area under the curve. The horizontal grey line represents 10% of the number of users who post or comment on one day.
+# Motivating the Definition of Engaged Users
+
+The graph below shows the number of users as a function of the minimum number of days that they either post or comment in January 2013. For a given number of days N, the number of users includes all users that produce content on N or more days. This is represented in the plot by the shaded orange area under the curve. The horizontal grey line represents 10% of the number of users who post or comment on one day.
 
 ![](https://github.com/tharrington923/rCheckUp/blob/master/website/rcheckup/static/images/engaged_users.png)
 
